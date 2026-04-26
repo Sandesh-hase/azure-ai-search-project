@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Margies Travel</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f7f9fc;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>

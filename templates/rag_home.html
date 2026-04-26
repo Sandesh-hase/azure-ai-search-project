@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Margie's Travel AI</title>
+
+        <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f7f9fc; /* soft light background */
+            color: #2c3e50;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 38px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+
+        .tagline {
+            font-size: 15px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .search-box {
+            background: white;
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            width: 500px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        button {
+            background: #ff7a18; /* travel orange */
+            border: none;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e66a10;
+        }
+
+        .examples {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .examples span {
+            display: inline-block;
+            margin: 5px;
+            padding: 6px 10px;
+            background: #eef3f8;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .examples span:hover {
+            background: #dde7f0;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+
+    <script>
+        function fillQuery(text) {
+            document.getElementById("question").value = text;
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="brand">🌍 Margie's Travel AI</div>
+    <div class="tagline">Ask anything about hotels, reviews, and travel insights</div>
+
+
+    <form action="/ask">
+        <div class="search-box">
+            <input 
+                id="question"
+                type="text" 
+                name="question" 
+                placeholder="e.g. Which hotel in Dubai has the best reviews?" 
+                required>
+            <button type="submit">Ask</button>
+        </div>
+    </form>
+
+    <!-- UPDATED EXAMPLES -->
+    <div class="examples">
+        Try:
+        <span onclick="fillQuery('Best hotels in Dubai')">Best hotels in Dubai</span>
+        <span onclick="fillQuery('Luxury hotels with great amenities')">Luxury stays</span>
+        <span onclick="fillQuery('Hotels near Dubai Creek')">Near Dubai Creek</span>
+    </div>
+
+</div>
+
+<div class="footer">
+    Powered by Azure AI Search + OpenAI
+</div>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Margie's Travel AI</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f7f9fc;
+            color: #2c3e50;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .search-bar {
+            margin-left: 40px;
+            flex: 1;
+        }
+
+        .search-bar input {
+            width: 60%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            background: #ff7a18;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 70%;
+            margin: 30px auto;
+        }
+
+        .answer-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .answer-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sources {
+            margin-top: 15px;
+        }
+
+        .sources a {
+            color: #1e88e5;
+            text-decoration: none;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .content {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eef3f8;
+            padding: 5px 8px;
+            margin: 3px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" style="width:30px;">
+        Margie's Travel AI
+    </div>
+
+    <form class="search-bar" action="/ask">
+        <input type="text" name="question" value="{{ question }}">
+        <button type="submit">Ask</button>
+    </form>
+
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+    <!-- ANSWER -->
+    <div class="answer-box">
+        <div class="answer-title">✨ AI Answer</div>
+        <div>{{ answer }}</div>
+
+        <div class="sources">
+            <b>Sources:</b><br>
+            {% for s in sources %}
+                <a href="{{ s.url }}" target="_blank">{{ s.title }}</a><br>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- RESULTS -->
+    <h3>📄 Retrieved Results</h3>
+
+    {% for r in search_results %}
+    <div class="card">
+
+        <div class="title">{{ r.title }}</div>
+
+        <div class="content">
+            {{ r.chunk[:250] }}...
+        </div>
+
+        <div>
+            {% for kp in r.keyPhrases %}
+                <span class="tag">{{ kp }}</span>
+            {% endfor %}
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fb;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.content {
+    margin-top: 10px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.tag {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #1e88e5;
+    padding: 4px 8px;
+    margin: 3px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.section {
+    margin-top: 10px;
+}
+
+.link {
+    margin-top: 10px;
+    display: inline-block;
+    color: #1e88e5;
+    text-decoration: none;
+}
+</style>
+
+<div class="container">
+<h2>Results for "{{ search_terms }}"</h2>
+
+{% for result in search_results %}
+<div class="card">
+
+    <div class="title">{{ result.title }}</div>
+
+    <div class="content">
+        {{ result.chunk[:300] }}...
+    </div>
+
+    <div class="section">
+        <b>Key Phrases:</b><br>
+        {% for kp in result.keyPhrases %}
+            <span class="tag">{{ kp }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="section">
+        <b>Locations:</b><br>
+        {% for loc in result.locations %}
+            <span class="tag">{{ loc }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="section">
+        <b>Persons:</b><br>
+        {% for p in result.persons %}
+            <span class="tag">{{ p }}</span>
+        {% endfor %}
+    </div>
+
+    <a class="link" href="{{ result.metadata_storage_path }}" target="_blank">
+        View Document →
+    </a>
+
+</div>
+{% endfor %}
+</div>
