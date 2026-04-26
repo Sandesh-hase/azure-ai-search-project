@@ -2,6 +2,10 @@
 
 This project is a crash course on using Azure AI Search to build intelligent search applications. The course demonstrates how to integrate Azure Cognitive Search with a Python Flask application to create a powerful and customizable search experience.
 
+<img width="938" height="839" alt="image" src="https://github.com/user-attachments/assets/5b7b61eb-4a97-4b43-b226-1b9fb6d7dd65" />
+
+<img width="860" height="618" alt="image" src="https://github.com/user-attachments/assets/c423f399-6413-4a56-9294-0062053c69b7" />
+
 ## Features
 - **Flask Web Application**: A lightweight web framework for building the search interface.
 - **Azure Cognitive Search Integration**: Leverage Azure's powerful search capabilities, including filtering, sorting, and faceted navigation.
