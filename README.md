@@ -4,6 +4,8 @@ This project is a crash course on using Azure AI Search to build intelligent sea
 
 <img width="938" height="839" alt="image" src="https://github.com/user-attachments/assets/5b7b61eb-4a97-4b43-b226-1b9fb6d7dd65" />
 
+
+
 <img width="860" height="618" alt="image" src="https://github.com/user-attachments/assets/c423f399-6413-4a56-9294-0062053c69b7" />
 
 ## Features
